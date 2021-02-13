@@ -67,7 +67,7 @@ if os.getenv("ENVIRONMENT") == "PROD":
     # A map to use when converting between community and sub members
     community_sub_map = {top_community:top_sub, jungle_community:jungle_sub, mid_community:mid_sub, adc_community:adc_sub, support_community:support_sub}
 
-    # Role ids that contain "Anarchy " to exclude when searching for team roles
+    # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
 elif os.getenv("ENVIRONMENT") == "TEST":
     bot_id = 805663879555842078
@@ -112,7 +112,7 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     server_access_channel = 777248440199413770
 
     # Meeting voice channel
-    meeting_channel = 777248442035601440
+    meeting_channel = 810185911735287808
 
     # Modmail channel
     modmail_channel = 777248440551342095
@@ -132,7 +132,7 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     # A map to use when converting between community and sub members
     community_sub_map = {top_community:top_sub, jungle_community:jungle_sub, mid_community:mid_sub, adc_community:adc_sub, support_community:support_sub}
 
-    # Role ids that contain "Anarchy " to exclude when searching for team roles
+    # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
 else:
     print("no environment was specified")
