@@ -4,7 +4,7 @@
 
 1. Install required pip modules by running: ```pip install -r requirements.txt```
 2. Create .env file and set environment variables:
-    1. In the same directory as start.py, run ```echo > .env``` to create an empty env file
+    1. In the same directory as start.py, run ```echo > .env``` to create an empty .env file
     2. Edit this .env file to include the following lines:<br>
     TOKEN={bot token for server}<br>
     ENVIRONMENT={PROD for Anarchy Esports, TEST for Anarchy Esports Test}

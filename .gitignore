@@ -1,0 +1,9 @@
+# Environment variables
+.env
+
+# Databases that could have data
+sqldb/general.db
+sqldb/scrim_scheduler.db
+
+# Pycache files
+__pycache__
