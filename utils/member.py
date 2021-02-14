@@ -1,4 +1,6 @@
 import utils.ids as ids
+import discord
+
 def get_member_team(member):
     """
     Returns team emoji if member is on a team
@@ -14,3 +16,17 @@ def get_member_team(member):
         return None
     else:
         return team_role.name.split("Elventus ")[1]
+
+def is_valid_captain(member, guild):
+    captain_role = discord.utils.get(guild.roles, id=ids.captain)
+    team = get_member_team(member)
+
+    # If they are not a captain
+    if captain_role not in member.roles:
+        return False
+    
+    # If they do not have a team
+    if team is None:
+        return False
+    
+    return True
