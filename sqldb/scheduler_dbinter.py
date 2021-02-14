@@ -50,6 +50,16 @@ class DBInterface:
             return None
         else:
             return data[0]
+        
+    def get_recieved_invites_at_time(self, team, day, time):
+        cur = self.conn.cursor()
+        cur.execute('''SELECT * FROM invites WHERE recieving_team = ? AND day = ? AND time = ?''', (team, day, time))
+        data = cur.fetchall()
+
+        if len(data) == 0:
+            return None
+        else:
+            return data
     
     def get_recieved_invites(self, team):
         cur = self.conn.cursor()
