@@ -10,6 +10,7 @@ import commands.removeteam as removeteam
 import commands.addchannel as addchannel
 import commands.removechannel as removechannel
 import commands.modmail as modmail
+import commands.teammates as teammates
 
 # Extras
 import extras.addstarter as addstarter
@@ -170,6 +171,12 @@ class Bot(discord.Client):
 
             if split_message[0] == "^removeteam":
                 await removeteam.activate(message, split_message, self.scrim_scheduler)
+            
+            if split_message[0] == "^addteammate":
+                await teammates.add_teammate(message, split_message)
+            
+            if split_message[0] == "^removeteammate":
+                await teammates.remove_teammate(message, split_message)
 
             
 
