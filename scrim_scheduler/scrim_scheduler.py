@@ -309,7 +309,7 @@ class Scrim_Scheduler:
 
         embed = utils.ui.new_embed_template()
         embed.title = "Agenda"
-        embed.description = "Type ``accept (code)`` to accept an invite\nType ``cancel (code)`` to cancel a scheduled match\nType ``unblock (code)`` to unblock a blocked time slot"
+        embed.description = "Type ``accept code`` to accept an invite\nType ``cancel code`` to cancel a scheduled match\nType ``unblock code`` to unblock a blocked time slot"
 
         for day in scrim_scheduler_conifg.days:
             for i in range(len(scrim_scheduler_conifg.times)):
@@ -319,36 +319,37 @@ class Scrim_Scheduler:
                 if agenda_data[day][i] is None:
                     
                     # Check if team has any invites for this time
-                    recieved_invite = self.dbinter.get_recieved_invite_at_time(team_name, day, i)
-                    if recieved_invite is not None:
-                        # If there is an invite
+                    recieved_invites = self.dbinter.get_recieved_invites_at_time(team_name, day, i)
+                    if recieved_invites is not None:
+                        for recieved_invite in recieved_invites:
+                            # If there is an invite
 
-                        sending_team_name = recieved_invite[1]
-                        sending_team_multi = await utils.team.get_team_multi(utils.team.get_team_category(self.guild, sending_team_name))
-                        sending_team_rank = '❔'
-                        code = self.dbinter.get_invite_code(sending_team_name, recieved_invite[2], recieved_invite[3])
+                            sending_team_name = recieved_invite[1]
+                            sending_team_multi = await utils.team.get_team_multi(utils.team.get_team_category(self.guild, sending_team_name))
+                            sending_team_rank = '❔'
+                            code = self.dbinter.get_invite_code(sending_team_name, recieved_invite[2], recieved_invite[3])
 
-                        # Get the team rank emoji
-                        if team_ranks[sending_team_name] is not None:
-                            sending_team_rank = str(discord.utils.get(self.guild.emojis, name=team_ranks[sending_team_name].lower()))
+                            # Get the team rank emoji
+                            if team_ranks[sending_team_name] is not None:
+                                sending_team_rank = str(discord.utils.get(self.guild.emojis, name=team_ranks[sending_team_name].lower()))
 
-                        # Create invite display
-                        if sending_team_multi is not None:
-                            # Format with multi
-                            temp = text[count] + "`" + code + "` " + sending_team_rank + " - [__**" + sending_team_name + "**__](" + sending_team_multi + ")\n"
-                            if len(temp) > 1024:
-                                count += 1
-                                text[count] = "`" + code + "` " + sending_team_rank + " - [__**" + sending_team_name + "**__](" + sending_team_multi + ")\n"
+                            # Create invite display
+                            if sending_team_multi is not None:
+                                # Format with multi
+                                temp = text[count] + "`" + code + "` " + sending_team_rank + " - [__**" + sending_team_name + "**__](" + sending_team_multi + ")\n"
+                                if len(temp) > 1024:
+                                    count += 1
+                                    text[count] = "`" + code + "` " + sending_team_rank + " - [__**" + sending_team_name + "**__](" + sending_team_multi + ")\n"
+                                else:
+                                    text[count] = temp
                             else:
-                                text[count] = temp
-                        else:
-                            # Format without multi
-                            temp = text[count] + "`" + code + "` " + sending_team_rank + " - __**" + sending_team_name + "**__\n"
-                            if len(temp) > 1024:
-                                count += 1
-                                text[count] = "`" + code + "` " + sending_team_rank + " - __**" + sending_team_name + "**__\n"
-                            else:
-                                text[count] = temp
+                                # Format without multi
+                                temp = text[count] + "`" + code + "` " + sending_team_rank + " - __**" + sending_team_name + "**__\n"
+                                if len(temp) > 1024:
+                                    count += 1
+                                    text[count] = "`" + code + "` " + sending_team_rank + " - __**" + sending_team_name + "**__\n"
+                                else:
+                                    text[count] = temp
                     else:
                         # If no invites
                         text[0] = "None"
@@ -437,7 +438,7 @@ class Scrim_Scheduler:
         team_ranks = utils.team.get_team_ranks(self.guild)
         embed = utils.ui.new_embed_template()
         embed.title = "Available Scrims"
-        embed.description = "Type  a ``(code)`` to send invite\nType ``block (code)`` to block a time slot"
+        embed.description = "Type  a ``code`` to send invite\nType ``block code`` to block a time slot"
         
         channel = self.guild.get_channel(utils.ids.lf_scrim_channel)
         await channel.purge() # Delete all old messages
@@ -450,7 +451,7 @@ class Scrim_Scheduler:
                 count = 0
                 await channel.send(embed=embed)
                 embed = utils.ui.new_embed_template()
-                embed.description = "Type  a ``(code)`` to send invite\nType ``block (code)`` to block a time slot"
+                embed.description = "Type  a ``code`` to send invite\nType ``block code`` to block a time slot"
             
             # Get the team rank emoji
             if team_ranks[team] is None:
