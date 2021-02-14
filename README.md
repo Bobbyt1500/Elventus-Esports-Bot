@@ -24,7 +24,9 @@
 #### Captain only:
 |command|description|
 |-------|-----------|
-|^addchannel {new_channel_name}|Creates a new channel in the captains team category
+|^addteammate {@teammate}|Gives that person your team role|
+|^removeteammate {@teammate}|Removes your teamrole from that person|
+|^addchannel {new_channel_name}|Creates a new channel in the captains team category|
 |^removechannel|Removes the channel it is ran in (Only works in a team category)|
 
 
