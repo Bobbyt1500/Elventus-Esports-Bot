@@ -7,3 +7,6 @@ sqldb/scrim_scheduler.db
 
 # Pycache files
 __pycache__
+
+# Google credentials
+google_credentials

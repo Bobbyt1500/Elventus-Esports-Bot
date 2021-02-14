@@ -69,6 +69,9 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
+
+    # Spreadsheet key used when accessing the applications spreadsheet
+    applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 elif os.getenv("ENVIRONMENT") == "TEST":
     bot_id = 805663879555842078
 
@@ -134,5 +137,8 @@ elif os.getenv("ENVIRONMENT") == "TEST":
 
     # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
+
+    # Spreadsheet key used when accessing the applications spreadsheet
+    applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 else:
     print("no environment was specified")
