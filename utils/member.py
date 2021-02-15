@@ -18,6 +18,10 @@ def get_member_team(member):
         return team_role.name.split("Elventus ")[1]
 
 def is_valid_captain(member, guild):
+    """
+    Returns True if they have a team role and a captain role
+    Returns False if not
+    """
     captain_role = discord.utils.get(guild.roles, id=ids.captain)
     team = get_member_team(member)
 

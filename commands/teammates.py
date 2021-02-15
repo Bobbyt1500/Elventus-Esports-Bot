@@ -3,6 +3,9 @@ import utils.ids as ids
 import utils.member
 
 async def add_teammate(message, split_message):
+    """
+    Adds the captains teamrole to the tagged person
+    """
     guild = message.guild
     captain = message.author
 
@@ -37,6 +40,9 @@ async def add_teammate(message, split_message):
 
 
 async def remove_teammate(message, split_message):
+    """
+    Removes the captains teamrole from the tagged person
+    """
     guild = message.guild
     captain = message.author
     
