@@ -56,7 +56,7 @@ if os.getenv("ENVIRONMENT") == "PROD":
     lf_scrim_channel=809604637900406844
 
     # LFT channel for applicants
-    lft_channel = 810530134569648139
+    lft_channel = 787376075864670268
 
     # Bulk role ids
 
