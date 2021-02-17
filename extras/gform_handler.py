@@ -46,7 +46,7 @@ def format_message(row, guild):
     if disc_member != None:
         discord_name = disc_member.mention
     
-    return "**Name:** " + name + " " + discord_name + " **Rank:** " + rank + " **Position:** " + position + " **OP.GG:** <" + op + ">"
+    return name + " " + discord_name + " " + rank + " " + position + " <" + op + ">"
         
 async def add_roles(row, guild):
     discord_name = row[0]
