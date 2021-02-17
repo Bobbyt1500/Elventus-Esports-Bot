@@ -18,11 +18,11 @@ async def update(guild):
         row = data[i]
         
         # Check for the timestamp * which means this cell has been seen before
-        if row[0][-1] == "*":
+        if row[7][-1] == "*":
             break
 
         # Mark this row as seen on the spreadsheet by adding a * to the timestamp
-        worksheet.update_cell(i+1, 1, row[0] + "*")
+        worksheet.update_cell(i+1, 8, row[7] + "*")
         
         # Add roles for this person
         await add_roles(row, guild)        
@@ -36,10 +36,10 @@ async def update(guild):
 
 def format_message(row, guild):
     name = row[1]
-    discord_name = row[2]
-    rank = row[6]
-    position = row[7]
-    op = row[9]
+    discord_name = row[0]
+    rank = row[2]
+    position = row[3]
+    op = row[4]
 
     # Get member mention if they are in the server
     disc_member = guild.get_member_named(discord_name)
@@ -49,9 +49,9 @@ def format_message(row, guild):
     return "**Name:** " + name + " " + discord_name + " **Rank:** " + rank + " **Position:** " + position + " **OP.GG:** <" + op + ">"
         
 async def add_roles(row, guild):
-    discord_name = row[2]
-    rank = row[6]
-    position = row[7]
+    discord_name = row[0]
+    rank = row[2]
+    position = row[3]
 
     rank_indicies = {"Challenger":0,"Grandmaster":1,"Master":2,"D1":3,"D2":3,"D3":3,"D4":3,"P1":4,"P2":4,"P3":4,"P4":4,"G1":5,"G2":5,"G3":5,"G4":5,"S1":6,"S2":6,"S3":6,"S4":6}
     position_indicies = {"Top":0,"Jungle":1,"Mid":2,"ADC":3,"Support":4}
