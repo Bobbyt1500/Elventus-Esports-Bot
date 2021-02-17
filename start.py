@@ -1,6 +1,7 @@
 # Third party modules
 import discord
 import os
+import asyncio
 from dotenv import load_dotenv
 
 # Commands
@@ -16,6 +17,7 @@ import commands.teammates as teammates
 import extras.addstarter as addstarter
 import extras.removestarter as removestarter
 import extras.chat_channel_handler as chat_channel_handler
+import extras.gform_handler as gform_handler
 
 import role_assign.role_assign as role_assign
 
@@ -41,7 +43,17 @@ class Bot(discord.Client):
         self.general_dbinter = sqldb.general_dbinter.DBInterface("sqldb/general.db")
 
         print("Environment = "+ os.getenv("ENVIRONMENT"))
+
+        # Only enable gform_task if credentials were provided
+        if os.getenv("GOOGLE_CREDENTIALS") != "NONE":
+            self.gform_task = self.loop.create_task(self.gform_task(self.get_guild(ids.guild)))
     
+    async def gform_task(self, guild):
+        while not self.is_closed():
+            await gform_handler.update(guild)
+            await asyncio.sleep(300)
+
+
     async def on_raw_reaction_add(self, payload):
         if payload.user_id == self.user.id:
             return

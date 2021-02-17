@@ -55,6 +55,9 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     lf_scrim_channel=809604637900406844
 
+    # LFT channel for applicants
+    lft_channel = 810530134569648139
+
     # Bulk role ids
 
     # Rank roles
@@ -69,6 +72,9 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
+
+    # Spreadsheet key used when accessing the applications spreadsheet
+    applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 elif os.getenv("ENVIRONMENT") == "TEST":
     bot_id = 805663879555842078
 
@@ -120,6 +126,9 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     #lf_scrim channel
     lf_scrim_channel = 805488180161675325
 
+    # LFT channel for applicants
+    lft_channel = 810530134569648139
+
     # Bulk role ids
 
     # Rank roles
@@ -134,5 +143,8 @@ elif os.getenv("ENVIRONMENT") == "TEST":
 
     # Role ids that contain "Elventus " to exclude when searching for team roles
     elventus_space = [starter, sub, community]
+
+    # Spreadsheet key used when accessing the applications spreadsheet
+    applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 else:
     print("no environment was specified")
