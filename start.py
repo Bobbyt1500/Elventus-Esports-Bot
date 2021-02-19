@@ -50,7 +50,7 @@ class Bot(discord.Client):
     async def gform_task(self, guild):
         while not self.is_closed():
             await gform_handler.update(guild)
-            await asyncio.sleep(300)
+            await asyncio.sleep(600)
 
 
     async def on_raw_reaction_add(self, payload):
