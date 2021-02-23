@@ -76,7 +76,7 @@ if os.getenv("ENVIRONMENT") == "PROD":
     # Spreadsheet key used when accessing the applications spreadsheet
     applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 elif os.getenv("ENVIRONMENT") == "TEST":
-    bot_id = 805663879555842078
+    bot_id = 777314263084826667
 
     guild = 777248439024484373
 
@@ -124,7 +124,7 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     modmail_channel = 777248440551342095
 
     #lf_scrim channel
-    lf_scrim_channel = 805488180161675325
+    lf_scrim_channel = 777248440551342094
 
     # LFT channel for applicants
     lft_channel = 810530134569648139
