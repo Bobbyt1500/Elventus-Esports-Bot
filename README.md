@@ -22,6 +22,7 @@
 |^meeting|Moves all members to the meeting channel|
 |^addteam {teamname} {new team emoji}|Creates a new Elventus team|
 |^removeteam {@teamrole}|Removes an Elventus team|
+|^check_attendance|Sends attendance log to #attendance|
 #### Captain only:
 |command|description|
 |-------|-----------|
