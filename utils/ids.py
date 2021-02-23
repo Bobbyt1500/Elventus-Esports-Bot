@@ -44,6 +44,9 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     voice_category = 809604119769251870
 
+    # Category that contains all of the team voice chats
+    teams_category = 811282464794214431
+
     # Channel where people react to get roles
     server_access_channel = 775520724894351390
 
@@ -52,6 +55,8 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     # Modmail channel
     modmail_channel = 769585298358272030
+
+    attendance_channel = 730535318364618803
 
     lf_scrim_channel=809604637900406844
 
@@ -115,6 +120,9 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     # Queue Room Category for all of the queue rooms
     voice_category = 780529394430509119
 
+    # Category that contains all of the team voice chats
+    teams_category = 813760024786632715
+
     server_access_channel = 777248440199413770
 
     # Meeting voice channel
@@ -123,7 +131,11 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     # Modmail channel
     modmail_channel = 777248440551342095
 
-    #lf_scrim channel
+    # Channel for attendance logs
+
+    attendance_channel = 777248440199413777
+
+    # Scrim Scheduler Channel
     lf_scrim_channel = 777248440551342094
 
     # LFT channel for applicants

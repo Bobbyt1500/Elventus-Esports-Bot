@@ -10,6 +10,7 @@ import commands.addteam as addteam
 import commands.removeteam as removeteam
 import commands.addchannel as addchannel
 import commands.removechannel as removechannel
+import commands.attendance as attendance
 import commands.modmail as modmail
 import commands.teammates as teammates
 
@@ -174,6 +175,12 @@ class Bot(discord.Client):
                     await self.send_not_enough_perms_message(message)
                     return
                 await self.scrim_scheduler.refresh_menus()
+            
+            if message.content == "^check_attendance":
+                if message.author.id not in ids.admins:
+                    await self.send_not_enough_perms_message(message)
+                    return
+                await attendance.activate(message)
             
             if message.content == "^meeting":
                 await meeting.activate(message)
