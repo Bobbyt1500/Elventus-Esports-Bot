@@ -11,7 +11,7 @@ if os.getenv("ENVIRONMENT") == "PROD":
     guild = 599752943100493847
 
     # List of admins to check for before activating a command
-    admins = [299314753220640778, 463676272510369793]
+    admins = [299314753220640778, 463676272510369793, 156960118141878272]
 
     # List of id's for specific roles
     coach = 624874643576193054
@@ -81,7 +81,7 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     guild = 777248439024484373
 
     # List of admins to check for before activating a command
-    admins = [463676272510369793, 299314753220640778]
+    admins = [463676272510369793, 299314753220640778, 156960118141878272]
 
     # List of id's for specific roles
     coach = 777248439263428627
