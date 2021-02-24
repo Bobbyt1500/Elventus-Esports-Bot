@@ -30,7 +30,7 @@ async def activate(message):
         count += 1
 
         # If there are 24 teams, make a new page
-        if count == 1:
+        if count == 24:
             await attendance_channel.send(embed=embed)
             embed = utils.ui.new_embed_template()
             embed.title = "Attendance"
