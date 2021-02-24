@@ -7,7 +7,7 @@
     1. In the same directory as start.py, run ```echo > .env``` to create an empty .env file
     2. Edit this .env file to include the following lines:<br>
     TOKEN={bot token for server}<br>
-    ENVIRONMENT={PROD for Anarchy Esports, TEST for Anarchy Esports Test}
+    ENVIRONMENT={PROD for Anarchy Esports, TEST for Anarchy Esports Test}<br>
     GOOGLE_CREDENTIALS=NONE
 3. Copy the files from the _sqlite_templates_ folder to the _sqldb_ folder
 4. Start the bot with: ```python start.py```
@@ -22,6 +22,7 @@
 |^meeting|Moves all members to the meeting channel|
 |^addteam {teamname} {new team emoji}|Creates a new Elventus team|
 |^removeteam {@teamrole}|Removes an Elventus team|
+|^check_attendance|Sends attendance log to #attendance|
 #### Captain only:
 |command|description|
 |-------|-----------|

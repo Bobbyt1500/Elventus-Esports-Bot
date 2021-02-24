@@ -11,7 +11,7 @@ if os.getenv("ENVIRONMENT") == "PROD":
     guild = 599752943100493847
 
     # List of admins to check for before activating a command
-    admins = [299314753220640778, 463676272510369793]
+    admins = [299314753220640778, 463676272510369793, 156960118141878272]
 
     # List of id's for specific roles
     coach = 624874643576193054
@@ -44,6 +44,9 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     voice_category = 809604119769251870
 
+    # Category that contains all of the team voice chats
+    teams_category = 811282464794214431
+
     # Channel where people react to get roles
     server_access_channel = 775520724894351390
 
@@ -52,6 +55,8 @@ if os.getenv("ENVIRONMENT") == "PROD":
 
     # Modmail channel
     modmail_channel = 769585298358272030
+
+    attendance_channel = 730535318364618803
 
     lf_scrim_channel=809604637900406844
 
@@ -76,12 +81,12 @@ if os.getenv("ENVIRONMENT") == "PROD":
     # Spreadsheet key used when accessing the applications spreadsheet
     applications_spread_key = "1_F7h3jbU3MdX_Awlk9Suy4hg0HdcGnuLM6BBdTu-d9o"
 elif os.getenv("ENVIRONMENT") == "TEST":
-    bot_id = 805663879555842078
+    bot_id = 777314263084826667
 
     guild = 777248439024484373
 
     # List of admins to check for before activating a command
-    admins = [463676272510369793, 299314753220640778]
+    admins = [463676272510369793, 299314753220640778, 156960118141878272]
 
     # List of id's for specific roles
     coach = 777248439263428627
@@ -115,6 +120,9 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     # Queue Room Category for all of the queue rooms
     voice_category = 780529394430509119
 
+    # Category that contains all of the team voice chats
+    teams_category = 813760024786632715
+
     server_access_channel = 777248440199413770
 
     # Meeting voice channel
@@ -123,8 +131,12 @@ elif os.getenv("ENVIRONMENT") == "TEST":
     # Modmail channel
     modmail_channel = 777248440551342095
 
-    #lf_scrim channel
-    lf_scrim_channel = 805488180161675325
+    # Channel for attendance logs
+
+    attendance_channel = 777248440199413777
+
+    # Scrim Scheduler Channel
+    lf_scrim_channel = 777248440551342094
 
     # LFT channel for applicants
     lft_channel = 810530134569648139
